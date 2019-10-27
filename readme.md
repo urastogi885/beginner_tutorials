@@ -3,12 +3,13 @@
 
 ## Overview
 
-Simple project to get started with ROS
+Simple project to get started with ROS:
+- Contains a beginner level tutorial as a ROS package to establish communication between 2 ROS nodes.
 
 ## Install ROS
 
-- This repository utilizes functionality of ROS Kinetic.
-- It is highly recommended that you ROS Kinetic is properly installed on your system before the use of this repository.
+- This project utilizes the functionality of ROS Kinetic.
+- It is highly recommended that ROS Kinetic is properly installed on your system before the use of this project.
 - Use this [*link*](http://wiki.ros.org/kinetic/Installation/Ubuntu) to install full-desktop version of ROS Kinetic.
 - Check the version of ROS to ensure successful installation.
 ```shell script
@@ -34,13 +35,13 @@ catkin_make
 ```shell script
 roscore
 ```
-- Open a new terminal and switch to the project directory:
+- Open a new terminal, switch to the project directory, and run the talker program:
 ```shell script
 cd <Project Directory>
 source catkin_ws/devel/setup.bash
 rosrun beginner_tutorials talker
 ```
-- Open a new terminal and switch to the project directory:
+- Open a new terminal, switch to the project directory, and run the listener program:
 ```shell script
 cd <Project Directory>
 source catkin_ws/devel/setup.bash
@@ -71,6 +72,6 @@ rosrun beginner_tutorials listener
 
 ## Cpplint and Cppcheck Documents
 
-- These are locates at the outermost level of the project directory
-- Cpplint: *cpplint_output.txt*
-- Cppcheck: *cppcheck_output.txt*
+- These are locates at the outermost level of the project directory:
+    - Cpplint - *cpplint_output.txt*
+    - Cppcheck - *cppcheck_output.txt*
