@@ -50,7 +50,7 @@ rosrun beginner_tutorials listener
 ## Debug
 
 - The terminal window in which you ran the talker program will display an output similar to this:
-```shell script
+```
 [ INFO] [1572158476.308004302]: Go Terps! 0
 [ INFO] [1572158476.318080082]: Go Terps! 1
 [ INFO] [1572158476.328083570]: Go Terps! 2
@@ -59,7 +59,7 @@ rosrun beginner_tutorials listener
 [ INFO] [1572158476.358122051]: Go Terps! 5
 ```
 - The terminal window in which you ran the listener program will display an output similar to this:
-```shell script
+```
 [ INFO] [1572158788.375470353]: I heard: [Go Terps! 27]
 [ INFO] [1572158788.385529029]: I heard: [Go Terps! 28]
 [ INFO] [1572158788.395633554]: I heard: [Go Terps! 29]
