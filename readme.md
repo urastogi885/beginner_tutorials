@@ -51,12 +51,12 @@ rosrun beginner_tutorials listener
 
 - The terminal window in which you ran the talker program will display an output similar to this:
 ```
-[ INFO] [1572158476.308004302]: Go Terps! 0
-[ INFO] [1572158476.318080082]: Go Terps! 1
-[ INFO] [1572158476.328083570]: Go Terps! 2
-[ INFO] [1572158476.338138093]: Go Terps! 3
-[ INFO] [1572158476.348151852]: Go Terps! 4
-[ INFO] [1572158476.358122051]: Go Terps! 5
+[ INFO] [1572158476.308004302]: Go Terps! 27
+[ INFO] [1572158476.318080082]: Go Terps! 28
+[ INFO] [1572158476.328083570]: Go Terps! 29
+[ INFO] [1572158476.338138093]: Go Terps! 30
+[ INFO] [1572158476.348151852]: Go Terps! 31
+[ INFO] [1572158476.358122051]: Go Terps! 32
 ```
 - The terminal window in which you ran the listener program will display an output similar to this:
 ```
