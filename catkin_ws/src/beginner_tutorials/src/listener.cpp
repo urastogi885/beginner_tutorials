@@ -2,7 +2,7 @@
  *@file talker.cpp
  *@author Umang Rastogi
  *@brief Tutotial to demonstrate simple receipt of messages over the ROS system
- *@copyright MIT
+ *@copyright 3-clause BSD
  */
 
 #include "ros/ros.h"
