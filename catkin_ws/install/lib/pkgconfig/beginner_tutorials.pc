@@ -1,0 +1,8 @@
+prefix=/home/umang/Documents/808x/assignments/beginner_tutorials/catkin_ws/install
+
+Name: beginner_tutorials
+Description: Description of beginner_tutorials
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/umang/Documents/808x/assignments/beginner_tutorials/catkin_ws/install/lib 
+Requires: 
