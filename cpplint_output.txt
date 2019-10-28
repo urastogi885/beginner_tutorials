@@ -1,5 +1,0 @@
-umang@umang-XPS-15-7590:~/Documents/808x/assignments/beginner_tutorials/catkin_ws/src/beginner_tutorials$ cpplint $( find . -name \*.hpp -or -name \*.cpp | grep
- -vE -e "^./build/" -e "^./vendor/" -e "^./docs/" -e "^./results" )
-Done processing ./src/talker.cpp
-Done processing ./src/listener.cpp
-
