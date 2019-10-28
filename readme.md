@@ -6,11 +6,12 @@
 Simple project to get started with ROS:
 - Contains a beginner level tutorial as a ROS package to establish communication between 2 ROS nodes.
 
-## Install ROS
+## Dependencies
 
-- This project utilizes the functionality of ROS Kinetic.
+- This project was developed using ROS Kinetic.
 - It is highly recommended that ROS Kinetic is properly installed on your system before the use of this project.
-- Use this [*link*](http://wiki.ros.org/kinetic/Installation/Ubuntu) to install full-desktop version of ROS Kinetic.
+- Follow the instructions on this [*link*](http://wiki.ros.org/kinetic/Installation/Ubuntu) to install full-desktop 
+ version of ROS Kinetic.
 - Check the version of ROS to ensure successful installation.
 ```shell script
 rosversion roscpp
@@ -19,32 +20,38 @@ rosversion roscpp
 ```shell script
 1.12.14
 ```
+- Create your ROS workspace by following instructions on this [*link*](http://wiki.ros.org/catkin/Tutorials/create_a_workspace).
+
 ## Build
 
-- Switch to the directory where you want to clone this repository.
+- Switch to your *src* sub-directory of your ROS workspace to clone this repository.
+```shell script
+<ROS Workspace>/src
+```
 - Run the following commands to clone and build this project:
 ```shell script
 git clone --recursive https://github.com/urastogi885/beginner_tutorials
-cd beginner_tutorials/catkin_ws
+cd ..
+source devel/setup.bash
 catkin_make
 ```
 
 ## Run
 
-- Open a new terminal and run:
+- In the same terminal, run:
 ```shell script
 roscore
 ```
-- Open a new terminal, switch to the project directory, and run the talker program:
+- Open a new terminal, switch to the ROS workspace, and run the talker program:
 ```shell script
-cd <Project Directory>
-source catkin_ws/devel/setup.bash
+cd <ROS Workspace>
+source devel/setup.bash
 rosrun beginner_tutorials talker
 ```
 - Open a new terminal, switch to the project directory, and run the listener program:
 ```shell script
-cd <Project Directory>
-source catkin_ws/devel/setup.bash
+cd <ROS Workspace>
+source devel/setup.bash
 rosrun beginner_tutorials listener
 ```
 
