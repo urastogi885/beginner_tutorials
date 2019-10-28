@@ -48,7 +48,7 @@ source catkin_ws/devel/setup.bash
 rosrun beginner_tutorials listener
 ```
 
-## Debug
+## Output
 
 - The terminal window in which you ran the talker program will display an output similar to this:
 ```
