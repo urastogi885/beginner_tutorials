@@ -59,21 +59,21 @@ rosrun beginner_tutorials listener
 
 - The terminal window in which you ran the talker program will display an output similar to this:
 ```
-[ INFO] [1572158476.308004302]: Go Terps! 27
-[ INFO] [1572158476.318080082]: Go Terps! 28
-[ INFO] [1572158476.328083570]: Go Terps! 29
-[ INFO] [1572158476.338138093]: Go Terps! 30
-[ INFO] [1572158476.348151852]: Go Terps! 31
-[ INFO] [1572158476.358122051]: Go Terps! 32
+[ INFO] [1572158476.308004302]: Go Terps! 0
+[ INFO] [1572158476.318080082]: Go Terps! 1
+[ INFO] [1572158476.328083570]: Go Terps! 2
+[ INFO] [1572158476.338138093]: Go Terps! 3
+[ INFO] [1572158476.348151852]: Go Terps! 4
+[ INFO] [1572158476.358122051]: Go Terps! 5
 ```
 - The terminal window in which you ran the listener program will display an output similar to this:
 ```
-[ INFO] [1572158788.375470353]: I heard: [Go Terps! 27]
-[ INFO] [1572158788.385529029]: I heard: [Go Terps! 28]
-[ INFO] [1572158788.395633554]: I heard: [Go Terps! 29]
-[ INFO] [1572158788.405334546]: I heard: [Go Terps! 30]
-[ INFO] [1572158788.415357325]: I heard: [Go Terps! 31]
-[ INFO] [1572158788.425334805]: I heard: [Go Terps! 32]
+[ INFO] [1572158788.375470353]: I heard: [Go Terps! 0]
+[ INFO] [1572158788.385529029]: I heard: [Go Terps! 1]
+[ INFO] [1572158788.395633554]: I heard: [Go Terps! 2]
+[ INFO] [1572158788.405334546]: I heard: [Go Terps! 3]
+[ INFO] [1572158788.415357325]: I heard: [Go Terps! 4]
+[ INFO] [1572158788.425334805]: I heard: [Go Terps! 5]
 
 ```
 
