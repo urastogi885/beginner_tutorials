@@ -8,6 +8,11 @@ Simple project to get started with ROS:
 
 ## Dependencies
 
+- Ubuntu 16.04
+- ROS Kinetic
+
+## Install Dependencies
+
 - This project was developed using ROS Kinetic.
 - It is highly recommended that ROS Kinetic is properly installed on your system before the use of this project.
 - Follow the instructions on this [*link*](http://wiki.ros.org/kinetic/Installation/Ubuntu) to install full-desktop 
@@ -46,39 +51,28 @@ roscore
 ```shell script
 cd <ROS Workspace>
 source devel/setup.bash
-rosrun beginner_tutorials talker
+roslaunch beginner_tutorials service.launch rate:=<frequency in integer>
 ```
-- Open a new terminal, switch to the project directory, and run the listener program:
+- For example:
+```shell script
+roslaunch beginner_tutorials service.launch rate:=10
+```
+- The message-manipulator service takes an integer as an input if the number is even message is concatenated twice
+otherwise it is concatenated thrice.
+- Open another new terminal, switch to the project directory, and run the listener program:
 ```shell script
 cd <ROS Workspace>
 source devel/setup.bash
-rosrun beginner_tutorials listener
+rosservice call manipulate_service <integer>
 ```
-
-## Output
-
-- The terminal window in which you ran the talker program will display an output similar to this:
-```
-[ INFO] [1572158476.308004302]: Go Terps! 0
-[ INFO] [1572158476.318080082]: Go Terps! 1
-[ INFO] [1572158476.328083570]: Go Terps! 2
-[ INFO] [1572158476.338138093]: Go Terps! 3
-[ INFO] [1572158476.348151852]: Go Terps! 4
-[ INFO] [1572158476.358122051]: Go Terps! 5
-```
-- The terminal window in which you ran the listener program will display an output similar to this:
-```
-[ INFO] [1572158788.375470353]: I heard: [Go Terps! 0]
-[ INFO] [1572158788.385529029]: I heard: [Go Terps! 1]
-[ INFO] [1572158788.395633554]: I heard: [Go Terps! 2]
-[ INFO] [1572158788.405334546]: I heard: [Go Terps! 3]
-[ INFO] [1572158788.415357325]: I heard: [Go Terps! 4]
-[ INFO] [1572158788.425334805]: I heard: [Go Terps! 5]
-
+For example:
+```shell script
+rosservice call manipulate_service 5
 ```
 
 ## Cpplint and Cppcheck Documents
 
-- These are locates at the outermost level of the project directory:
+- These are located in the *result* sub-directory:
     - Cpplint - *cpplint_output.txt*
     - Cppcheck - *cppcheck_output.txt*
+    - RQT Console - *rqt_console_output.png*
