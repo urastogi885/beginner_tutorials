@@ -121,7 +121,7 @@ bool modifyMessage(beginner_tutorials::messageManipulator::Request &req,
   /// Instantiate necessary variables
   int number = req.number;
   /// Add info level message
-  ROS_DEBUG("Received number: " << number);
+  ROS_DEBUG("Received number: %d", number);
 
   if (number < 0) {
     /// Report error for negative
