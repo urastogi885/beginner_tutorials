@@ -47,25 +47,25 @@ catkin_make
 ```shell script
 roscore
 ```
-- Open a new terminal, switch to the ROS workspace, and run the talker program:
+- Open a new terminal, switch to the ROS workspace, and run both the nodes using the *roslaunch*:
 ```shell script
 cd <ROS Workspace>
 source devel/setup.bash
-roslaunch beginner_tutorials service.launch rate:=<frequency in integer>
+roslaunch beginner_tutorials service.launch rate:=<frequency(Hz) in integer>
 ```
 - For example:
 ```shell script
 roslaunch beginner_tutorials service.launch rate:=10
 ```
-- The message-manipulator service takes an integer as an input if the number is even message is concatenated twice
-otherwise it is concatenated thrice.
-- Open another new terminal, switch to the project directory, and run the listener program:
+- Open another new terminal, switch to the project directory, and run service to change the publishing message:
 ```shell script
 cd <ROS Workspace>
 source devel/setup.bash
 rosservice call manipulate_service <integer>
 ```
-For example:
+- The message-manipulator service takes an integer as an input if the number is even message is concatenated twice
+otherwise it is concatenated thrice.
+- Run the following example command:
 ```shell script
 rosservice call manipulate_service 5
 ```
