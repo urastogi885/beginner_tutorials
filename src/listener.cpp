@@ -44,28 +44,15 @@ void chatterCallback(const std_msgs::String::ConstPtr& msg) {
 
 
 int main(int argc, char **argv) {
-  /*
-   * Initialize the talking node
-   *
-   * init must be called before any other part of the ROS system
-   */
+  /// Initialize the talking node
+  /// init must be called before any other part of the ROS system
   ros::init(argc, argv, "listener");
-
-  /*
-   * Initialize the main access point to communications with the ROS system
-   */  
-  ros::NodeHandle n;
-
-  /*
-   * Inititlaize the publisher with a topic name and buffer size of messages
-   * 
-   * Make sure you have subscribed to the correct topic
-   */
-  ros::Subscriber sub = n.subscribe("UMD", 1000, chatterCallback);
-
-  /*
-   * Add to handle callbacks
-   */
+  /// Initialize the main access point to communications with the ROS system
+  ros::NodeHandle node;
+  /// Inititlaize the publisher with a topic name and buffer size of messages
+  /// Make sure you have subscribed to the correct topic
+  ros::Subscriber sub = node.subscribe("UMD", 1000, chatterCallback);
+  /// Add to handle callbacks
   ros::spin();
 
   return 0;
