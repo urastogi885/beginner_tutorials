@@ -1,6 +1,0 @@
-umang@umang-XPS-15-7590:~/Documents/808x/assignments/beginner_tutorials/catkin_ws/src/beginner_tutorials$ cppcheck --enable=all --std=c++11 -I include/ --suppress=missingIncludeSystem $( find . -name *.cpp | grep -vE -e "^./build/" -e "^./vendor/" )
-Checking src/listener.cpp...
-1/2 files checked 38% done
-Checking src/talker.cpp...
-2/2 files checked 100% done
-(information) Cppcheck cannot find all the include files (use --check-config for details)
