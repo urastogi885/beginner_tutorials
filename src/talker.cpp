@@ -68,16 +68,16 @@ int main(int argc, char **argv) {
   if (argc == 2) {
     if (atoi(argv[1]) < 0) {
       /// Report fatal error for negative frequency
-      ROS_FATAL("Invalid rate");
+      ROS_FATAL_STREAM("Invalid rate");
       return 1;
     } else if (atoi(argv[1]) > 1000) {
       /// set error log if rate is too high
-      ROS_ERROR("Rate too large");
+      ROS_ERROR_STREAM("Rate too large");
     }
     freq = atoi(argv[1]);
   } else {
     /// if no argument is found, exit the program
-    ROS_FATAL("No argument passed for frequency");
+    ROS_FATAL_STREAM("No argument passed for frequency");
     return 1;
   }
 
@@ -102,7 +102,7 @@ int main(int argc, char **argv) {
     message.data = rosMessage.modifiedMessage + " [" + \
               std::to_string(count) + "]";
     /// Add message data to the ROS logger
-    ROS_INFO("%s", message.data.data());
+    ROS_INFO_STREAM(message.data.data());
     /// Send the message to the subscribed topic
     chatter_pub.publish(message);
     /// Add to handle callbacks
@@ -121,11 +121,11 @@ bool modifyMessage(beginner_tutorials::messageManipulator::Request &req,
   /// Instantiate necessary variables
   int number = req.number;
   /// Add info level message
-  ROS_DEBUG("Received number: %d", number);
+  ROS_DEBUG_STREAM("Received number: " << number);
 
   if (number < 0) {
     /// Report error for negative
-    ROS_ERROR("Number not positive");
+    ROS_ERROR_STREAM("Number not positive");
   }
 
   if (number % 2 == 0) {
@@ -139,8 +139,8 @@ bool modifyMessage(beginner_tutorials::messageManipulator::Request &req,
                             rosMessage.baseMessage;
   }
 
-  ROS_WARN("Publishing message modified");
-  ROS_DEBUG("Output generated");
+  ROS_WARN_STREAM("Publishing message modified");
+  ROS_DEBUG_STREAM("Output generated");
 
   return true;
 }

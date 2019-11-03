@@ -39,7 +39,7 @@
  * Update ROS logger with info from the listener
  */
 void chatterCallback(const std_msgs::String::ConstPtr& msg) {
-  ROS_INFO("I heard: [%s]", msg->data.data());
+  ROS_INFO_STREAM("I heard: " << msg->data.data());
 }
 
 
