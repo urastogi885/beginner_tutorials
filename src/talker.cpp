@@ -98,7 +98,7 @@ int main(int argc, char **argv) {
   /// Make sure the listener is subscribed to the same topic name
   ros::Publisher chatter_pub = nh.advertise<std_msgs::String>("chatter", 1000);
   /// Initialize the server with a service name and the manipulator function
-  ros::ServiceServer server = nh.advertiseService("modifyMessage_service", \
+  ros::ServiceServer server = nh.advertiseService("modifyMessageService", \
                           modifyMessage);
   /// Set loop frequency
   ros::Rate loop_rate(freq);
