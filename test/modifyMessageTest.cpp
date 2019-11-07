@@ -25,9 +25,9 @@
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * @file talker.cpp
+ * @file modifyMessageTest.cpp
  * @author Umang Rastogi
- * @brief Tutotial to demonstrate simple receipt of messages over the ROS system
+ * @brief Tests various fucntionalities of the modify message service
  */
 
 /// Add standard libraries
