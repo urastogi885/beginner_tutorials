@@ -5,15 +5,15 @@
 	/>
 	<node
 		pkg = "beginner_tutorials"
-		name = "publisher"
 		type = "talker"
+		name = "publisher"
 		output = "screen"
 		args="$(arg rate)"
 	/>
 	<node
 		pkg = "beginner_tutorials"
-		name = "subscriber"
 		type = "listener"
+		name = "subscriber"
 		output = "screen"	
 		launch-prefix = "xterm -e"
 	/>
