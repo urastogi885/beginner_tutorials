@@ -48,10 +48,10 @@ int main(int argc, char **argv) {
   /// init must be called before any other part of the ROS system
   ros::init(argc, argv, "listener");
   /// Initialize the main access point to communications with the ROS system
-  ros::NodeHandle node;
+  ros::NodeHandle nh;
   /// Inititlaize the publisher with a topic name and buffer size of messages
   /// Make sure you have subscribed to the correct topic
-  ros::Subscriber sub = node.subscribe("UMD", 1000, chatterCallback);
+  ros::Subscriber sub = nh.subscribe("chatter", 1000, chatterCallback);
   /// Add to handle callbacks
   ros::spin();
 
