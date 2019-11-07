@@ -55,6 +55,26 @@ TEST(ModifyMessageTest, checkServiceExistence) {
 }
 
 /**
+ * @brief To test the modification of message
+ * @param TestSuite, testCase
+ * @return void
+ */
+TEST(ModifyMessageTest, checkModifyMessage) {
+  /// Initialize the main access point to communications with the ROS system
+  ros::NodeHandle nh;
+  /// Initialize the service-client object
+  ros::ServiceClient client = 
+    nh.serviceClient<beginner_tutorials::modifyMessage>("modifyMessage_service");
+  /// Initialize the service object
+  beginner_tutorials::modifyMessage modify;
+  /// requesting the new string to service
+  modify.request.number = 10;
+  client.call(modify);
+  /// comparing the service response with the requested string
+  EXPECT_STREQ("Go Terps! Go Terps!", modify.response.changedMessage.c_str());
+}
+
+/**
  * @brief main
  * @return int
  */
