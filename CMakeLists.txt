@@ -17,7 +17,7 @@ find_package(
 ## Declare ROS messages and services
 add_service_files(
 	FILES 
-	messageManipulator.srv
+	modifyMessage.srv
 )
 
 ## Generate added messages and services
@@ -39,3 +39,26 @@ add_dependencies(talker beginner_tutorials_gencpp)
 add_executable(listener src/listener.cpp)
 target_link_libraries(listener ${catkin_LIBRARIES})
 add_dependencies(listener beginner_tutorials_gencpp)
+
+## Enable catkin test and add files for the same
+if(CATKIN_ENABLE_TESTING)
+  find_package(rostest REQUIRED)
+
+  add_rostest_gtest(
+  modifyMessageTest
+  test/modifyMessageTest.launch
+  test/modifyMessageTest.cpp
+  )
+
+  target_link_libraries(
+  modifyMessageTest
+  ${catkin_LIBRARIES}
+  )
+
+  add_dependencies(
+  modifyMessageTest
+  talker
+  listener
+  ${catkin_EXPORTED_TARGETS}
+  )
+endif()
