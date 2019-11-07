@@ -10,17 +10,21 @@ find_package(
 	roscpp 
 	rospy 
 	std_msgs 
-	genmsg)
+	genmsg
+	tf
+)
 
 ## Declare ROS messages and services
 add_service_files(
 	FILES 
-	messageManipulator.srv)
+	messageManipulator.srv
+)
 
 ## Generate added messages and services
 generate_messages(
 	DEPENDENCIES
-	std_msgs)
+	std_msgs
+)
 
 ## Declare a catkin package
 catkin_package()
