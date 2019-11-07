@@ -36,7 +36,7 @@
 #include <std_msgs/String.h>
 #include <string>
 /// Add custom libraries
-#include "beginner_tutorials/messageManipulator.h"
+#include "beginner_tutorials/modifyMessage.h"
 
 /// Define structure for the ROS message
 struct RosMessage {
@@ -53,8 +53,8 @@ RosMessage rosMessage;
  * @param res int result
  * @return boolean
  */
-bool modifyMessage(beginner_tutorials::messageManipulator::Request &req,
-                beginner_tutorials::messageManipulator::Response &res);
+bool modifyMessage(beginner_tutorials::modifyMessage::Request &req,
+                beginner_tutorials::modifyMessage::Response &res);
 
 int main(int argc, char **argv) {
   /// Initialize the talking node
@@ -132,8 +132,8 @@ int main(int argc, char **argv) {
   return 0;
 }
 
-bool modifyMessage(beginner_tutorials::messageManipulator::Request &req,
-                beginner_tutorials::messageManipulator::Response &res) {
+bool modifyMessage(beginner_tutorials::modifyMessage::Request &req,
+                beginner_tutorials::modifyMessage::Response &res) {
   /// Instantiate necessary variables
   int number = req.number;
   /// Add info level message
@@ -154,6 +154,9 @@ bool modifyMessage(beginner_tutorials::messageManipulator::Request &req,
                             rosMessage.baseMessage + " " + \
                             rosMessage.baseMessage;
   }
+
+  /// Add modified message as the response of the service 
+  res.changedMessage = rosMessage.modifiedMessage;
 
   ROS_WARN_STREAM("Publishing message modified");
   ROS_DEBUG_STREAM("Output generated");
