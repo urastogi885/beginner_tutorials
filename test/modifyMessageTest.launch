@@ -1,0 +1,18 @@
+<launch>
+ 	<arg
+		name = "rate"
+		default = "5"
+	/>
+	<node
+		pkg = "beginner_tutorials"
+		type = "talker"
+		name = "publisher"
+		output = "screen"
+		args="$(arg rate)"
+	/>
+  	<test
+	  	pkg="beginner_tutorials"
+	  	type="modifyMessageTest"
+	  	test-name="modifyMessageTest"
+  	/>
+</launch>
