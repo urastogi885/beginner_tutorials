@@ -155,7 +155,7 @@ bool modifyMessage(beginner_tutorials::modifyMessage::Request &req,
                             rosMessage.baseMessage;
   }
 
-  /// Add modified message as the response of the service 
+  /// Add modified message as the response of the service
   res.changedMessage = rosMessage.modifiedMessage;
 
   ROS_WARN_STREAM("Publishing message modified");

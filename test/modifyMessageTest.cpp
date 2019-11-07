@@ -47,8 +47,8 @@ TEST(ModifyMessageTest, checkServiceExistence) {
   /// Initialize the main access point to communications with the ROS system
   ros::NodeHandle nh;
   /// Initialize the service-client object
-  ros::ServiceClient client = 
-    nh.serviceClient<beginner_tutorials::modifyMessage>("modifyMessage_service");
+  ros::ServiceClient client =
+    nh.serviceClient<beginner_tutorials::modifyMessage>("modifyMessageService");
   /// Check the existence of service
   bool serviceExists(client.waitForExistence(ros::Duration(10)));
   EXPECT_TRUE(serviceExists);
@@ -63,8 +63,8 @@ TEST(ModifyMessageTest, checkModifyMessage) {
   /// Initialize the main access point to communications with the ROS system
   ros::NodeHandle nh;
   /// Initialize the service-client object
-  ros::ServiceClient client = 
-    nh.serviceClient<beginner_tutorials::modifyMessage>("modifyMessage_service");
+  ros::ServiceClient client =
+    nh.serviceClient<beginner_tutorials::modifyMessage>("modifyMessageService");
   /// Initialize the service object
   beginner_tutorials::modifyMessage modify;
   /// requesting the new string to service
