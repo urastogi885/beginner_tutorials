@@ -31,6 +31,7 @@
  */
 
 /// Add standard libraries
+#include <tf/transform_broadcaster.h>
 #include <ros/ros.h>
 #include <std_msgs/String.h>
 #include <string>
@@ -60,9 +61,20 @@ int main(int argc, char **argv) {
   /// init must be called before any other part of the ROS system
   ros::init(argc, argv, "talker");
   /// Initialize the main access point to communications with the ROS system
-  ros::NodeHandle node;
-  /// Set default frequency
+  ros::NodeHandle nh;
+  /// Initialize the transform-broadcaster object
+  static tf::TransformBroadcaster tbr;
+  /// Initialize the transform object
+  tf::Transform transform;
+  /// Initialize the quaternion object
+  tf::Quaternion quaternion;
+  /// Set the default frequency
   int freq = 100;
+  /// Set the origin for the transform
+  transform.setOrigin(tf::Vector3(1.0, 3.0, 5.0));
+  /// Set rotation using roll, pitch, and yaw
+  quaternion.setRPY(10, 20, 15);
+  transform.setRotation(quaternion);
 
   /// Check if user has entered frequency
   if (argc == 2) {
@@ -71,9 +83,10 @@ int main(int argc, char **argv) {
       ROS_FATAL_STREAM("Invalid rate");
       return 1;
     } else if (atoi(argv[1]) > 1000) {
-      /// set error log if rate is too high
-      ROS_ERROR_STREAM("Rate too large");
+      /// Set error log if rate is too high
+      ROS_ERROR_STREAM("Rate is too large");
     }
+    /// Set publishing freqency
     freq = atoi(argv[1]);
   } else {
     /// if no argument is found, exit the program
@@ -83,19 +96,22 @@ int main(int argc, char **argv) {
 
   /// Inititlaize the publisher with a topic name and buffer size of messages
   /// Make sure the listener is subscribed to the same topic name
-  ros::Publisher chatter_pub = node.advertise<std_msgs::String>("UMD", 1000);
+  ros::Publisher chatter_pub = nh.advertise<std_msgs::String>("chatter", 1000);
   /// Initialize the server with a service name and the manipulator function
-  ros::ServiceServer server = node.advertiseService("manipulate_service", \
+  ros::ServiceServer server = nh.advertiseService("modifyMessage_service", \
                           modifyMessage);
   /// Set loop frequency
   ros::Rate loop_rate(freq);
   /// Update the modified message before
   rosMessage.modifiedMessage = rosMessage.baseMessage;
-  /// Initialize a variable to count the no. of published messages
+  /// Initialize a counter for the no. of published messages
   int count = 0;
 
   /// Start a loop that ends via the Ctrl-C command from keyboard
   while (ros::ok()) {
+    /// Broadcast the transform information
+    tbr.sendTransform(
+      tf::StampedTransform(transform, ros::Time::now(), "world", "talk"));
     /// Initialize a message object to stuff data and publish it
     std_msgs::String message;
     /// Construct the message to be published
