@@ -3,12 +3,16 @@
 		name = "rate"
 		default = "5"
 	/>
+	<arg
+		name = "enableRosBag"
+		default = "false"
+	/>
 	<node
 		pkg = "beginner_tutorials"
 		type = "talker"
 		name = "publisher"
 		output = "screen"
-		args="$(arg rate)"
+		args = "$(arg rate)"
 	/>
 	<node
 		pkg = "beginner_tutorials"
@@ -17,4 +21,11 @@
 		output = "screen"	
 		launch-prefix = "xterm -e"
 	/>
+	<node
+        pkg = "rosbag"
+        type = "record"
+        name = "record_talker"
+        args = "--duration=15 -a -O $(find beginner_tutorials)/result/recordTalker.bag"
+        if = "$(arg enableRosBag)"
+    />
 </launch>
