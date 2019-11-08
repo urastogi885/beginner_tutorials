@@ -58,7 +58,7 @@ roslaunch beginner_tutorials service.launch rate:=<frequency(Hz) in integer> ena
 ```
 - For example:
 ```shell script
-roslaunch beginner_tutorials service.launch rate:=10
+roslaunch beginner_tutorials service.launch rate:=2 enableRosBag:=false
 ```
 - Open another new terminal, switch to the ROS workspace, and run service to change the publishing message:
 ```shell script
@@ -85,14 +85,8 @@ rosrun rqt_tf_tree rqt_tf_tree
 rosrun tf tf_echo world talk
 ```
 - The last command will keep publishing the transform of the *talk* frame with respect to the *world* frame.
-- The output of the last command should be similar to:
-```
-At time 1573187868.883
-- Translation: [1.000, 3.000, 5.000]
-- Rotation: in Quaternion [0.424, 0.701, -0.404, 0.407]
-            in RPY (radian) [-2.566, 1.150, 2.434]
-            in RPY (degree) [-147.042, 65.916, 139.437]
-```
+- The output of each of the above commands is included in the *result* sub-directory. The list of files in the folder
+is given below in the *Documents* section.
 - Press *Ctrl+C* to stop running the command.
 
 ## Generate Rosbag File
@@ -103,12 +97,16 @@ generated bag file)
 ```shell script
 roslaunch beginner_tutorials service.launch rate:=<frequency(Hz) in integer> enableRosBag:=true
 ```
+- For example:
+```shell script
+roslaunch beginner_tutorials service.launch rate:=2 enableRosBag:=true
+```
 - The bag file would have been replaced with new data.
 - To play the ROS bag file, terminate the talker and listener nodes, and run:
 ```shell script
 rosrun beginner_tutorials listener
 ```
-- In a new terminal, and switch to the *result* sub-directory in the project directory:
+- In a new terminal, and switch to the *result* sub-directory in the project directory: (Make sure roscore is running)
 ```shell script
 cd <ROS Workspace>/src/beginner_tutorials/result
 rosbag play recordTalker.bag
@@ -123,14 +121,16 @@ rosbag info recordTalker.bag
 ## Test
 
 - Make sure all the ROS nodes have been terminated, including ROS master, and close all terminal windows.
-- In a new terminal, switch to the ROS workspace, and run the tests:
+- In a new terminal, switch to the ROS workspace, and build the tests:
 ```shell script
 cd <ROS Workspace>
 catkin_make run_tests_beginner_tutorials
-``` 
-- Since the project has already been built before, the following command can also be used to run all the test cases:
+```
+- The above command will also run the tests.
+- After build, the following command can also be used to run all the test cases:
 ```shell script
-roslaunch beginner_tutorials modifyMessageService.launch
+source devel/setup.bash
+rostest beginner_tutorials modifyMessageTest.launch
 ```
 - You should be able to see the successful execution of 2 test cases.
 
@@ -141,4 +141,7 @@ roslaunch beginner_tutorials modifyMessageService.launch
     - Cppcheck - *cppcheck_output.txt*
     - RQT Console - *rqt_console_output.png*
     - TF Frame Output- *frames.pdf*
-    - RosBag file - *recordTalker.bag*
+    - RosBag - *recordTalker.bag*
+    - Rosbag Play - *rosbag_play.png*
+    - RQT Tree - *rqt_tree.png*
+    - RQT TF Echo  - *rqt_tf_echo.png*
