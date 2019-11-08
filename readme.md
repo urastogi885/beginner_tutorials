@@ -131,6 +131,7 @@ catkin_make run_tests_beginner_tutorials
 rostest beginner_tutorials modifyMessageTest.launch
 ```
 - You should be able to see the successful execution of 2 test cases.
+- A screenshot of the execution of the test cases is included in the *result* directory.
 
 ## Documents
 
