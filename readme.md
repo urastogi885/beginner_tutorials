@@ -6,6 +6,8 @@
 
 Simple project to get started with ROS:
 - Contains a beginner level tutorial as a ROS package to establish communication between 2 ROS nodes.
+- Establishes launch files
+- Uses TF frames and ROS test capabilities
 
 ## Dependencies
 
@@ -70,7 +72,9 @@ otherwise it is concatenated thrice.
 ```shell script
 rosservice call modifyMessageService 5
 ```
+
 ## Inspect TF Frames and Tree
+
 - In a new terminal, switch to the ROS workspace, and run these commands to view TF frames and tree:
 ```shell script
 cd <ROS Workspace>
@@ -91,7 +95,8 @@ At time 1573187868.883
 ```
 - Press *Ctrl+C* to stop running the command.
 
-## Generate ROS bag file
+## Generate Rosbag File
+
 - You can either generate a new ROS bag file or play the previously generated one.
 - To generate a new bag file, launch all the ros nodes. (You can skip this step if you just want to play the previously
 generated bag file)
@@ -108,12 +113,13 @@ rosrun beginner_tutorials listener
 cd <ROS Workspace>/src/beginner_tutorials/result
 rosbag play recordTalker.bag
 ```
+- All the messages stored in the bag file will be published on the listener node.
 - You can also verify the bag file by running: (Stop the execution of last command before proceeding any further by
 using *Ctrl+C*)
 ```shell script
 rosbag info recordTalker.bag
 ```
-- All the messages stored in the bag file will be published on the listener node.
+
 ## Test
 
 - Make sure all the ROS nodes have been terminated, including ROS master, and close all terminal windows.
