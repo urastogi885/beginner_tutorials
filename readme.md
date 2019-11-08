@@ -6,8 +6,7 @@
 
 Simple project to get started with ROS:
 - Contains a beginner level tutorial as a ROS package to establish communication between 2 ROS nodes.
-- Establishes launch files
-- Uses TF frames and ROS test capabilities
+- Uses tf frames, roslaunch, and rostest capabilities
 
 ## Dependencies
 
@@ -40,7 +39,6 @@ rosversion roscpp
 ```shell script
 git clone --recursive https://github.com/urastogi885/beginner_tutorials
 cd ..
-source devel/setup.bash
 catkin_make
 ```
 
@@ -68,14 +66,14 @@ rosservice call modifyMessageService <integer>
 ```
 - The message-manipulator service takes an integer as an input if the number is even message is concatenated twice
 otherwise it is concatenated thrice.
-- Run the following example command:
+- For example:
 ```shell script
 rosservice call modifyMessageService 5
 ```
 
 ## Inspect TF Frames and Tree
 
-- In a new terminal, switch to the ROS workspace, and run these commands to view TF frames and tree:
+- In a new terminal, switch to the ROS workspace, and run these commands to view TF frames, tree, and transform:
 ```shell script
 cd <ROS Workspace>
 source devel/setup.bash
@@ -85,13 +83,13 @@ rosrun rqt_tf_tree rqt_tf_tree
 rosrun tf tf_echo world talk
 ```
 - The last command will keep publishing the transform of the *talk* frame with respect to the *world* frame.
-- The output of each of the above commands is included in the *result* sub-directory. The list of files in the folder
-is given below in the *Documents* section.
 - Press *Ctrl+C* to stop running the command.
+- The output of each of the above commands is included in the *result* sub-directory. A list of files in the folder
+is given below in the *Documents* section.
 
 ## Generate Rosbag File
 
-- You can either generate a new ROS bag file or play the previously generated one.
+- You can either generate a new ROS bag file or play the rosbag file included in the *result* directory.
 - To generate a new bag file, launch all the ros nodes. (You can skip this step if you just want to play the previously
 generated bag file)
 ```shell script
@@ -120,16 +118,16 @@ rosbag info recordTalker.bag
 
 ## Test
 
-- Make sure all the ROS nodes have been terminated, including ROS master, and close all terminal windows.
+- Make sure all the ROS nodes have been terminated, including ROS master, and close all the terminal windows.
 - In a new terminal, switch to the ROS workspace, and build the tests:
 ```shell script
 cd <ROS Workspace>
+source devel/setup.bash
 catkin_make run_tests_beginner_tutorials
 ```
-- The above command will also run the tests.
+- The above command will also run the tests after building them.
 - After build, the following command can also be used to run all the test cases:
 ```shell script
-source devel/setup.bash
 rostest beginner_tutorials modifyMessageTest.launch
 ```
 - You should be able to see the successful execution of 2 test cases.
@@ -145,3 +143,4 @@ rostest beginner_tutorials modifyMessageTest.launch
     - Rosbag Play - *rosbag_play.png*
     - RQT Tree - *rqt_tree.png*
     - RQT TF Echo  - *rqt_tf_echo.png*
+    - Rostest Output - *rostest_output.png*
