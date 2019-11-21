@@ -6,8 +6,14 @@
 ## Overview
 
 Simple project to get started with ROS:
-- Contains a beginner level tutorial as a ROS package to establish communication between 2 ROS nodes.
-- Uses tf frames, roslaunch, and rostest capabilities
+- Contains a beginner level tutorial as a ROS package to establish communication between 2 ROS nodes
+- Employs *rosservice* feature to change the broadcated message between the nodes
+- Uses *TF frames*, *roslaunch*, and *rostest* capabilities
+- Developed over 4 weeks:
+    - The first week was only to get started with listener-talker nodes.
+    - In the second week, *rosservice*, *roslaunch*, and *rqt_graph* features were added.
+    - The third week was to use *rosbag* and *rostest* features.
+    - The last week was to get continuous integration included in the repo using Travis CI.
 
 ## Dependencies
 
