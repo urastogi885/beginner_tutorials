@@ -30,7 +30,7 @@ before_install:
   - gem install coveralls-lcov 
   # Install ROS-Base: (Bare Bones) ROS package, build, and communication libraries. No GUI tools. 
   - sudo apt-get install -y --allow-unauthenticated ros-$ROS_DISTRO-ros-base
-  - sudo apt-get install -y --allow-unauthenticated ros-$ROS_DISTRO-std-msgs
+  - sudo apt-get install -y --allow-unauthenticated ros-$ROS_DISTRO-tf ros-$ROS_DISTRO-tf2 ros-$ROS_DISTRO-tf2-msgs ros-$ROS_DISTRO-tf2-py ros-$ROS_DISTRO-tf2-ros
   - source /opt/ros/$ROS_DISTRO/setup.bash
   # Prepare rosdep to install dependencies.
   - sudo rosdep init
@@ -63,7 +63,7 @@ before_script:
   - wstool up
   # package depdencies: install using rosdep.
   - cd ~/catkin_ws
-  - rosdep install -y --allow-unauthenticated --from-paths src --ignore-src --rosdistro $ROS_DISTRO
+  - rosdep install -y --from-paths src --ignore-src --rosdistro=ROS_DISTRO
 
 # Compile and test (mark the build as failed if any step fails). If the
 # CATKIN_OPTIONS file exists, use it as an argument to catkin_make, for example
