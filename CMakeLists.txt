@@ -43,6 +43,7 @@ add_dependencies(listener beginner_tutorials_gencpp)
 ## Enable catkin test and add files for the same
 if(CATKIN_ENABLE_TESTING)
   find_package(rostest REQUIRED)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O0 --coverage")
 
   add_rostest_gtest(
   modifyMessageTest
