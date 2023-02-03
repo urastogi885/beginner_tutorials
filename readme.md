@@ -1,7 +1,6 @@
 
 # ROS Beginner's Tutorial
 [![Build Status](https://travis-ci.org/urastogi885/beginner_tutorials.svg?branch=master)](https://travis-ci.org/urastogi885/beginner_tutorials)
-[![Coverage Status](https://coveralls.io/repos/github/urastogi885/beginner_tutorials/badge.svg?branch=master)](https://coveralls.io/github/urastogi885/beginner_tutorials?branch=master)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/urastogi885/beginner_tutorials/blob/master/LICENSE)
 
 ## Overview
